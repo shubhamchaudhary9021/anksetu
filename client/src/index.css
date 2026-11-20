@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --color-background: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-secondary-surface: #F1F5F9;
+    --color-primary: #00264D;
+    --color-primary-hover: #001D3D;
+    --color-accent: #FF7F00;
+    --color-accent-hover: #E06D00;
+    --color-accent-light: #FFF7ED;
+    --color-navy-light: #EBF2FA;
+    --color-text: #0F172A;
+    --color-muted: #64748B;
+    --color-border: #E2E8F0;
+  }
+
+  .dark {
+    --color-background: #090E1A;
+    --color-surface: #0F172A;
+    --color-secondary-surface: #1E293B;
+    --color-primary: #00264D;
+    --color-primary-hover: #001D3D;
+    --color-accent: #FF7F00;
+    --color-accent-hover: #E06D00;
+    --color-accent-light: #1C1917;
+    --color-navy-light: #1E293B;
+    --color-text: #F8FAFC;
+    --color-muted: #94A3B8;
+    --color-border: #334155;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.8125rem;
+    /* Slightly refined base font size for modern SaaS dashboard */
+  }
+}
+
+/* AnkSetu Brand Palette Utility Classes */
+.bg-brand-navy {
+  background-color: #00264D !important;
+}
+
+.bg-brand-navy-dark {
+  background-color: #001D3D !important;
+}
+
+.bg-brand-orange {
+  background-color: #FF7F00 !important;
+}
+
+.bg-brand-orange-light {
+  background-color: #FFF7ED !important;
+}
+
+.bg-brand-navy-light {
+  background-color: #EBF2FA !important;
+}
+
+.text-brand-navy {
+  color: #00264D !important;
+}
+
+.text-brand-orange {
+  color: #FF7F00 !important;
+}
+
+.text-dark {
+  color: #0F172A !important;
+}
+
+.text-muted {
+  color: #64748B !important;
+}
+
+.border-brand-navy {
+  border-color: #00264D !important;
+}
+
+.border-brand-orange {
+  border-color: #FF7F00 !important;
+}
+
+/* Backward-compatible aliases mapped cleanly to new logo theme */
+.bg-blush {
+  background-color: #F8FAFC !important;
+}
+
+.bg-light-pink {
+  background-color: #FFF7ED !important;
+}
+
+.bg-rose-pink {
+  background-color: #FF7F00 !important;
+}
+
+.bg-lavender {
+  background-color: #00264D !important;
+}
+
+.border-rose {
+  border-color: #FED7AA !important;
+}
+
+.border-lavender {
+  border-color: #CBD5E1 !important;
+}
+
+/* Custom Button Component Classes */
+.btn-primary {
+  background-color: #00264D;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 38, 77, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: #001D3D;
+  box-shadow: 0 4px 6px -1px rgba(0, 38, 77, 0.2);
+}
+
+.btn-ai {
+  background-color: #FF7F00;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(255, 127, 0, 0.2);
+}
+
+.btn-ai:hover {
+  background-color: #E06D00;
+  box-shadow: 0 4px 8px -1px rgba(255, 127, 0, 0.3);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: 1px solid #E2E8F0;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.dark .btn-secondary {
+  background-color: #1E293B;
+  color: #F8FAFC;
+  border-color: #334155;
+}
+
+.dark .btn-secondary:hover {
+  background-color: #334155;
+  border-color: #475569;
+}
+
+/* Form inputs styling */
+.input-pastel {
+  background-color: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  color: #0F172A;
+  border-radius: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.8125rem;
+  transition: all 0.2s ease;
+}
+
+.dark .input-pastel {
+  background-color: #0F172A;
+  border-color: #334155;
+  color: #F8FAFC;
+}
+
+.input-pastel::placeholder {
+  color: #94A3B8;
+}
+
+.input-pastel:focus {
+  border-color: #FF7F00;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 127, 0, 0.15);
+  background-color: #FFFFFF;
+}
+
+.dark .input-pastel:focus {
+  background-color: #0F172A;
+}
+
+/* Print Styles for A4 Result Sheet */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0F172A !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .printable-area {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 12mm 15mm;
+  }
+}
